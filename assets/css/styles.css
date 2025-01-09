@@ -1,0 +1,100 @@
+/* index.php */
+
+.index {
+    color: rgb(20, 20, 20);
+    text-align: center;
+}
+
+/* index.php */
+
+
+
+/* header.php */
+
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.708);
+}
+
+#virksomhed-header-logo {
+    width: 200px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.header a:hover {
+    color: #fed520;
+    text-shadow: 0.3px 0px 0px #fed520; 
+}
+
+
+/* header.php */
+
+/* footer.php */
+
+.footer {
+    background-color: #fed520;
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* footer.php */
+
+
+
+/* Dashboard */
+
+
+
+/* Dashboard */
+
+
+form {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    border: 2px solid #fed520; 
+    background-color: white;   
+    color: black;          
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #fed520;          
+}
+
+
+/* Userpage */
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;        /* Makes it circular */
+    object-fit: cover;         /* Ensures image fills circle without distortion */
+    border: 2px solid #fed520; /* Yellow border */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
