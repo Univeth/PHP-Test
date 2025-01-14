@@ -1,0 +1,303 @@
+
+/* Menu button */
+#PanelUI-button {
+    -moz-box-ordinal-group: 0 !important;
+    order: -2 !important;
+    margin: 2px !important;
+    /* display: none !important; */
+  }
+  
+  /* Change the opacity of extension icons in the toolbar */
+  #nav-bar .toolbarbutton-1 {
+    opacity: 0.5; /* Adjust the value as needed (0 to 1) */
+  }
+
+  /* Change the opacity of extension icons in the overflow menu */
+  #widget-overflow .toolbarbutton-1 {
+    opacity: 0.5; /* Adjust the value as needed (0 to 1) */
+  }
+
+  .titlebar-buttonbox-container {
+    margin-right: 8px !important;
+    opacity: 0.35;
+    transition: opacity 0.2s ease;
+  }
+
+  .titlebar-buttonbox-container:hover {
+    opacity: 0.8; 
+  }
+
+  .titlebar-button {
+    border-radius: 6% !important;
+    transition: background-color 0.2s ease;
+  }
+
+  .titlebar-min:hover {
+    background-color: rgba(107, 107, 107, 0.3) !important; /* Yellow, more transparent */
+  }
+
+  .titlebar-max:hover,
+  .titlebar-restore:hover {
+    background-color: rgba(107, 107, 107, 0.3) !important; /* Green, more transparent */
+  }
+
+  .titlebar-close:hover {
+    background-color: rgba(107, 107, 107, 0.3) !important; /* Red, more transparent */
+  }
+
+
+  
+  /* Page back and foward buttons */
+  #back-button,
+  #forward-button
+  {
+    display: none !important
+  }
+  
+  /* Extensions button */
+  #unified-extensions-button {
+    display: none !important
+  }
+  
+  /* Extension name inside URL bar */
+  #identity-box.extensionPage #identity-icon-label {
+    visibility: collapse !important
+  }
+  
+  /* All tabs (v-like) button */
+  #alltabs-button {
+    display: none !important
+  }
+  
+/* Make favorite star monotone and adjust appearance */
+#star-button {
+  fill: grey !important;
+  fill-opacity: 0.5 !important;
+}
+
+#star-button[starred] {
+  fill: rgba(211, 211, 211, 0.7) !important;
+  fill-opacity: 1 !important;
+}
+
+#star-button:hover,
+#star-button[starred]:hover {
+  fill: rgba(255, 255, 255, 0.7) !important;
+  fill-opacity: 0.5 !important;
+}
+
+
+  /* URL bar icons */
+  #identity-permission-box,
+  #identity-icon-box,
+  #picture-in-picture-button,
+  #urlbar-zoom-button,
+  #tracking-protection-icon-container,
+  #reader-mode-button,
+  #translations-button
+  {
+    display: none !important
+  }
+  
+  /* "This time search with:..." */
+  #urlbar .search-one-offs {
+    display: none !important
+  }
+  
+  /* --- ~END~ element visibility section --- */
+  
+  /* Navbar size calc */
+  :root{
+  --tab-border-radius: 6px !important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 6px  */
+  --NavbarWidth: 43; /*  Default values: 36 - 43  */
+  --TabsHeight: 36; /*  Minimum: 30  *//*  Default: 36  */
+  --TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
+  --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
+  
+  @media screen and (min-width:1325px) {
+    :root #nav-bar {
+        margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; 
+        height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
+        /* Reduce this value to make URL bar area narrower */
+        width: 35vw !important;
+    }
+    
+    #TabsToolbar {
+        /* Adjust this to match your URL bar width */
+        margin-left: 35vw !important;
+    }
+    
+    #nav-bar {
+        /* Adjust this to match your URL bar width */
+        margin-right: calc(100vw - 35vw) !important;
+        vertical-align: center !important;
+    }
+}
+
+@media screen and (min-width:950px) and (max-width:1324px) {
+    :root #nav-bar {
+        margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
+        height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
+        /* Reduce this value to make URL bar area narrower */
+        width: 35vw !important;
+    }
+    
+    #TabsToolbar {
+        /* Adjust this to match your URL bar width */
+        margin-left: 35vw !important;
+    }
+    
+    #nav-bar {
+        /* Adjust this to match your URL bar width */
+        margin-right: calc(100vw - 35vw) !important;
+        vertical-align: center !important;
+    }
+}
+  @media screen and (max-width:949px)    /*  The window is not enough wide for a one line layout  */
+  {:root #nav-bar{padding: 0 5px 0 5px!important; height: calc(var(--NavbarHeightSmall) * 1px) !important} toolbarspring{display: none !important;} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
+  #nav-bar, #PersonalToolbar{background-color: #0000 !important;background-image: none !important; box-shadow: none !important} #nav-bar{margin-left: 3px;} .tab-background, .tab-stack { min-height: calc(var(--TabsHeight) * 1px) !important}
+  
+  /*  Removes urlbar border/background  */
+  #urlbar-background {
+    border: none !important;
+    outline: none !important;
+    transition: .15s !important;
+  }
+  
+  /*  Removes the background from the urlbar while not in use  */
+  #urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
+      box-shadow: none !important;
+      background: #0000 !important;
+  }
+  
+  /*  Removes annoying border  */
+  #navigator-toolbox {
+      border: none !important
+  }
+  
+  /* Fades window while not in focus */
+  #navigator-toolbox-background:-moz-window-inactive {
+    filter: contrast(90%)
+  }
+  
+  /* Remove fullscreen warning border */
+  #fullscreen-warning {
+    border: none !important;
+    background: -moz-Dialog !important;
+  }
+  
+  /*  Tabs close button  */
+  .tabbrowser-tab:not(:hover) .tab-close-button {
+      opacity: 0% !important;
+      transition: 0.3s !important;
+      display: -moz-box !important;
+  }
+  .tab-close-button[selected]:not(:hover) {
+      opacity: 45% !important;
+      transition: 0.3s !important;
+      display: -moz-box !important;
+  }
+  .tabbrowser-tab:hover .tab-close-button {
+      opacity: 50%;
+      transition: 0.3s !important;
+      background: none !important;
+      cursor: pointer;
+      display: -moz-box !important;
+  }
+  .tab-close-button:hover {
+      opacity: 100% !important;
+      transition: 0.3s !important;
+      background: none !important;
+      cursor: pointer;
+      display: -moz-box !important;
+  }
+  .tab-close-button[selected]:hover {
+      opacity: 100% !important;
+      transition: 0.3s !important;
+      background: none !important;
+      cursor: pointer;
+      display: -moz-box !important;
+  }
+
+/* Style for bookmark folder popups */
+menupopup[placespopup="true"] {
+  -moz-appearance: none !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+/* Style for items within the popup */
+menupopup[placespopup="true"] > menuitem,
+menupopup[placespopup="true"] > menu {
+  -moz-appearance: none !important;
+  background-color: transparent !important;
+  color: #ffffffd8 !important;
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+/* Hover effect for items */
+menupopup[placespopup="true"] > menuitem:hover,
+menupopup[placespopup="true"] > menu:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  transform: translateX(6px) !important;
+}
+
+/* Active effect for items */
+menupopup[placespopup="true"] > menuitem:active,
+menupopup[placespopup="true"] > menu:active {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateX(3px) !important;
+}
+
+/* Ensure submenus also follow the same style */
+menupopup[placespopup="true"] menupopup {
+  -moz-appearance: none !important;
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* #PersonalToolbar toolbarseparator {
+  color: #DA94DB;
+} */
+
+/* Optional: Add a subtle glow effect to the popup */
+menupopup[placespopup="true"]::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Make tabs narrower */
+.tabbrowser-tab[fadein]:not([pinned]) {
+  max-width: 125px !important; /* Adjust this value - lower number = narrower tabs */
+  min-width: 25px !important; /* Adjust this value - lower number = narrower minimum width */
+}
+
+/* If you want pinned tabs to be narrower too */
+.tabbrowser-tab[pinned] {
+  width: 28px !important; /* Adjust this value for pinned tabs */
+}
+
+/* Make URL bar text smaller */
+#urlbar-input {
+  font-size: 12px !important; /* Adjust this value to your preference */
+}
+
+/* Optional: Also adjust the URL bar height to match smaller text */
+#urlbar {
+  min-height: 24px !important; /* Adjust this value to your preference */
+}
+
+/* Optional: Adjust URL dropdown suggestions text size too */
+.urlbarView-row {
+  font-size: 12px !important; /* Adjust this value to your preference */
+}
