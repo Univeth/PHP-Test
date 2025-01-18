@@ -18,7 +18,7 @@
   }
 
   .titlebar-buttonbox-container {
-    margin-right: 8px !important;
+    margin-right: 12px !important;
     opacity: 0.35;
     transition: opacity 0.2s ease;
   }
@@ -28,7 +28,7 @@
   }
 
   .titlebar-button {
-    border-radius: 6% !important;
+    border-radius: 8% !important;
     transition: background-color 0.2s ease;
   }
 
@@ -54,10 +54,7 @@
     display: none !important
   }
   
-  /* Extensions button */
-  #unified-extensions-button {
-    display: none !important
-  }
+
   
   /* Extension name inside URL bar */
   #identity-box.extensionPage #identity-icon-label {
@@ -89,7 +86,6 @@
 
   /* URL bar icons */
   #identity-permission-box,
-  #identity-icon-box,
   #picture-in-picture-button,
   #urlbar-zoom-button,
   #tracking-protection-icon-container,
@@ -98,6 +94,22 @@
   {
     display: none !important
   }
+  
+/* Styling for the identity icon box */
+#identity-icon-box {
+  opacity: 0.55; /* Makes it very faded by default */
+  transition: opacity 0.1s ease;
+}
+
+/* Style for hover state */
+#identity-icon-box:hover {
+  opacity: 0.65; /* Makes it almost fully opaque when hovered */
+}
+
+#identity-icon-box #identity-icon {
+  transform: scale(0.90); /* Makes the icon slightly larger */
+}
+  
   
   /* "This time search with:..." */
   #urlbar .search-one-offs {
@@ -114,45 +126,12 @@
   --TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
   --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
   
-  @media screen and (min-width:1325px) {
-    :root #nav-bar {
-        margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; 
-        height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
-        /* Reduce this value to make URL bar area narrower */
-        width: 35vw !important;
-    }
-    
-    #TabsToolbar {
-        /* Adjust this to match your URL bar width */
-        margin-left: 35vw !important;
-    }
-    
-    #nav-bar {
-        /* Adjust this to match your URL bar width */
-        margin-right: calc(100vw - 35vw) !important;
-        vertical-align: center !important;
-    }
-}
-
-@media screen and (min-width:950px) and (max-width:1324px) {
-    :root #nav-bar {
-        margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
-        height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px);
-        /* Reduce this value to make URL bar area narrower */
-        width: 35vw !important;
-    }
-    
-    #TabsToolbar {
-        /* Adjust this to match your URL bar width */
-        margin-left: 35vw !important;
-    }
-    
-    #nav-bar {
-        /* Adjust this to match your URL bar width */
-        margin-right: calc(100vw - 35vw) !important;
-        vertical-align: center !important;
-    }
-}
+  @media screen and (min-width:1325px)    /*  Only the tabs space will grow from here  */
+  {:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important} #nav-bar{margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important}}
+  
+  @media screen and (min-width:950px) and (max-width:1324px)    /*  Both the tabs space and the navbar will grow  */
+  {:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(var(--NavbarWidth) * 1vw) !important} #nav-bar{margin-right: calc(100vw - calc(var(--NavbarWidth) * 1vw)) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
+  
   @media screen and (max-width:949px)    /*  The window is not enough wide for a one line layout  */
   {:root #nav-bar{padding: 0 5px 0 5px!important; height: calc(var(--NavbarHeightSmall) * 1px) !important} toolbarspring{display: none !important;} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
   #nav-bar, #PersonalToolbar{background-color: #0000 !important;background-image: none !important; box-shadow: none !important} #nav-bar{margin-left: 3px;} .tab-background, .tab-stack { min-height: calc(var(--TabsHeight) * 1px) !important}
@@ -219,6 +198,120 @@
       display: -moz-box !important;
   }
 
+/* Default state of bookmark items */
+#PlacesToolbarItems > .bookmark-item {
+  opacity: 0.15;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover state of bookmark items */
+#PlacesToolbarItems > .bookmark-item:hover {
+  opacity: 0.75;
+}
+
+  /* :root {
+    --titlebar-height: 32px;
+    --toolbar-height: 50px;
+    --toolbar-offset: 10px;  
+    --bookmark-font-size: 12px;
+    --toolbar-show-duration: 0.3s;
+    --toolbar-hide-duration: 0.3s;
+    --toolbar-hover-area: 10px;
+  }
+  
+  #navigator-toolbox {
+    position: relative;
+  }
+  
+  #navigator-toolbox::after {
+    content: '';
+    position: absolute;
+    top: var(--titlebar-height);
+    left: 0;
+    right: 0;
+    height: 20px;
+    z-index: 998;
+  }
+  
+  
+  #PersonalToolbar {
+    opacity: 0;
+    height: 0;
+    max-height: 0;
+    transform: translateY(-100%);
+    position: fixed;
+    top: calc(var(--titlebar-height) + var(--toolbar-offset));
+    left: 0;
+    right: 0;
+    transition: 
+      opacity 0.08s ease-out,
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  
+  #navigator-toolbox:hover #PersonalToolbar,
+  #PersonalToolbar:hover,
+  #PersonalToolbar:focus-within {
+    opacity: 1;
+    height: var(--toolbar-height);
+    max-height: var(--toolbar-height);
+    transform: translateY(0);
+    transition: 
+      opacity 0.12s ease-in,
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+
+
+  
+
+  #PersonalToolbar::before {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--toolbar-hover-area));
+    left: 0;
+    right: 0;
+    height: var(--toolbar-hover-area);
+  }
+  
+  #PlacesToolbarItems > .bookmark-item {
+    transition: all 0.2s ease;
+    font-size: var(--bookmark-font-size);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 0 2px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    opacity: 0.95;
+  }
+  
+  #PlacesToolbarItems > .bookmark-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  }
+  
+  #PlacesToolbarItems > .bookmark-item:active,
+  #PlacesToolbarItems > .bookmark-item:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  } */
+
+  
 /* Style for bookmark folder popups */
 menupopup[placespopup="true"] {
   -moz-appearance: none !important;
@@ -276,28 +369,3 @@ menupopup[placespopup="true"]::before {
   z-index: -1;
 }
 
-/* Make tabs narrower */
-.tabbrowser-tab[fadein]:not([pinned]) {
-  max-width: 125px !important; /* Adjust this value - lower number = narrower tabs */
-  min-width: 25px !important; /* Adjust this value - lower number = narrower minimum width */
-}
-
-/* If you want pinned tabs to be narrower too */
-.tabbrowser-tab[pinned] {
-  width: 28px !important; /* Adjust this value for pinned tabs */
-}
-
-/* Make URL bar text smaller */
-#urlbar-input {
-  font-size: 12px !important; /* Adjust this value to your preference */
-}
-
-/* Optional: Also adjust the URL bar height to match smaller text */
-#urlbar {
-  min-height: 24px !important; /* Adjust this value to your preference */
-}
-
-/* Optional: Adjust URL dropdown suggestions text size too */
-.urlbarView-row {
-  font-size: 12px !important; /* Adjust this value to your preference */
-}
